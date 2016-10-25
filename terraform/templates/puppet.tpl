@@ -12,6 +12,7 @@ packages:
   - ruby-devel
   - git
   - vim
+  - bind-utils
  
 runcmd:
   - gem install r10k
@@ -20,6 +21,7 @@ runcmd:
   - systemctl enable puppetserver.service
   - mkdir -p /etc/facter/facts.d
   - r10k deploy environment -p --verbose -c /etc/puppetlabs/r10k.yaml
+  
 
 write_files:
   - path: /etc/puppetlabs/r10k.yaml
