@@ -23,6 +23,7 @@ resource "digitalocean_droplet" "puppetmaster" {
   size = "${var.digitalocean_droplet_size}"
   private_networking = true
   ssh_keys = [ "${digitalocean_ssh_key.personal.id}" ]
+  user_data = "${file("templates/puppet.tpl")}"
 }
 
 resource "digitalocean_domain" "default" {
