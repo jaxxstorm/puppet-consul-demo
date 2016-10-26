@@ -21,15 +21,15 @@ resource "digitalocean_droplet" "puppetmaster" {
   size = "${var.digitalocean_droplet_size}"
   private_networking = true
   ssh_keys = [ "${var.digitalocean_keys}" ]
-  user_data = "${element(data.template_file.puppetmaster_user_data.*.rendered,count.index)}"
+  user_data = "${element(data.template_file.puppetmaster_user_data.*.rendered,count.index + 1)}"
 }
 
 resource "digitalocean_record" "puppetmaster" {
-  count  = "${var.count + 1}"
+  count  = "${var.count}"
   domain = "${var.digitalocean_domain}"
   type   = "A"
   name   = "puppetmaster-${count.index+1}"
-  value  = "${element(digitalocean_droplet.puppetmaster.*.ipv4_address_private, count.index)}"
+  value  = "${element(digitalocean_droplet.puppetmaster.*.ipv4_address_private, count.index + 1)}"
 }
 
 output "addresses" {

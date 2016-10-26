@@ -24,14 +24,9 @@ resource "digitalocean_droplet" "puppet_ca" {
   user_data = "${element(data.template_file.puppetca_user_data.*.rendered,count.index)}"
 }
 
-resource "digitalocean_domain" "default" {
-  name = "${var.digitalocean_domain}"
-  ip_address = "${digitalocean_droplet.puppet_ca.0.ipv4_address}"
-}
-
 resource "digitalocean_record" "puppetca" {
   count  = "${var.count}"
-  domain = "${digitalocean_domain.default.name}"
+  domain = "${var.digitalocean_domain}"
   type   = "A"
   name   = "puppetmaster-${count.index}"
   value  = "${element(digitalocean_droplet.puppet_ca.*.ipv4_address_private, count.index)}"
