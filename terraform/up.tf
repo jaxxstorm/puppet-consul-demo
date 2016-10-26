@@ -29,6 +29,22 @@ module "puppetserver" {
   digitalocean_keys = "${digitalocean_ssh_key.personal.id}"
 }
 
+module "consulserver" {
+  source = "modules/consulserver"
+  digitalocean_domain = "${var.digital_ocean_domain}"
+  digitalocean_keys = "${digitalocean_ssh_key.personal.id}"
+}
+
 output "puppetca_address" {
   value = "${module.puppet_ca.addresses}"
 }
+
+output "puppetmaster_addresses" {
+  value = "${module.puppetserver.addresses}"
+}
+
+output "consulserver_addresses" {
+  value = "${module.consulserver.addresses}"
+}
+
+
