@@ -5,4 +5,8 @@ class profiles::stdpackages {
     ensure => present,
   }
 
+  package { 'nagios-plugins-http':
+    ensure => present,
+  }
+
 }
