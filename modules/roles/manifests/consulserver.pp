@@ -4,7 +4,7 @@ class roles::consulserver inherits roles::base {
   class { '::consul':
     pretty_config => true,
     config_hash => {
-      datacenter          => 'lon1',
+      datacenter          => "${::digital_ocean_region}",
       server              => true,
       data_dir            => '/opt/consul',
       client_addr         => '0.0.0.0',
