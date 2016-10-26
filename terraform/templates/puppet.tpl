@@ -21,7 +21,7 @@ runcmd:
   - systemctl enable puppetserver.service
   - mkdir -p /etc/facter/facts.d
   - r10k deploy environment -p --verbose -c /etc/puppetlabs/r10k.yaml
-  - echo "nameserver 173.245.58.51" >> /etc/resolv.conf
+  - echo "nameserver 173.245.58.51" > /etc/resolv.conf
 
 
 write_files:
