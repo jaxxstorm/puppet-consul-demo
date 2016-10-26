@@ -7,7 +7,7 @@ yum_repos:
     name: PuppetLabs
 
 packages:
-  - puppet-agent
+  - puppetserver
   - ruby
   - ruby-devel
   - git
