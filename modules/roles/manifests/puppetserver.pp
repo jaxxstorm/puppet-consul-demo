@@ -20,7 +20,7 @@ class roles::puppetserver inherits roles::base {
     server_common_modules_path  => [],
     server_jvm_min_heap_size    => '512m',
     server_jvm_max_heap_size    => '512m',
-    server_ca                   => true,
+    server_ca                   => false,
     ca_server                   => 'puppetmaster-0.briggs.lan'
 	}
 
