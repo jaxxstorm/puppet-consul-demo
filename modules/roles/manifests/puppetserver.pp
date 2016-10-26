@@ -27,4 +27,6 @@ class roles::puppetserver inherits roles::base {
     ca_server                   => 'puppetmaster-0.briggs.lan'
 	}
 
+  include ::profiles::consul::agent
+
 }
