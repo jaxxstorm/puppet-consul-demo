@@ -5,7 +5,7 @@ variable "digitalocean_region" { default = "lon1" }
 variable "digitalocean_droplet_size" { default = "1gb" }
 variable "count" { default=2 }
 
-data "template_file" "puppetmaster_user_data" {
+data "template_file" "puppetserver_user_data" {
   template = "${file("${path.module}/templates/puppet.tpl")}"
   count = "${var.count}"
   vars {
@@ -13,25 +13,25 @@ data "template_file" "puppetmaster_user_data" {
   }
 }
 
-resource "digitalocean_droplet" "puppetmaster" {
+resource "digitalocean_droplet" "puppetserver" {
   count = "${var.count}"
   image = "centos-7-x64"
-  name  = "puppetmaster-${count.index + 1}"
+  name  = "puppetserver-${count.index + 1}"
   region = "${var.digitalocean_region}"
   size = "${var.digitalocean_droplet_size}"
   private_networking = true
   ssh_keys = [ "${var.digitalocean_keys}" ]
-  user_data = "${element(data.template_file.puppetmaster_user_data.*.rendered,count.index + 1)}"
+  user_data = "${element(data.template_file.puppetserver_user_data.*.rendered,count.index + 1)}"
 }
 
-resource "digitalocean_record" "puppetmaster" {
+resource "digitalocean_record" "puppetserver" {
   count  = "${var.count}"
   domain = "${var.digitalocean_domain}"
   type   = "A"
-  name   = "puppetmaster-${count.index+1}"
-  value  = "${element(digitalocean_droplet.puppetmaster.*.ipv4_address_private, count.index)}"
+  name   = "puppetserver-${count.index+1}"
+  value  = "${element(digitalocean_droplet.puppetserver.*.ipv4_address_private, count.index)}"
 }
 
 output "addresses" {
-  value = ["${digitalocean_droplet.puppetmaster.*.ipv4_address}"]
+  value = ["${digitalocean_droplet.puppetserver.*.ipv4_address}"]
 }

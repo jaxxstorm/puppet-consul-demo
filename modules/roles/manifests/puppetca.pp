@@ -1,4 +1,4 @@
-# this sets up a puppetmaster
+# this sets up a puppetca
 class roles::puppetca inherits roles::base {
 
   include ::profiles::r10k
@@ -12,7 +12,7 @@ class roles::puppetca inherits roles::base {
     notify  => Class['puppet']
 	}
 
-  # set up a puppetmaster
+  # set up a puppetserver
   class { '::puppet':
   	server                      => true,
   	server_foreman              => false,
@@ -23,7 +23,7 @@ class roles::puppetca inherits roles::base {
     server_jvm_min_heap_size    => '512m',
     server_jvm_max_heap_size    => '512m',
     server_ca                   => true,
-    ca_server                   => 'puppetmaster-0.briggs.lan'
+    ca_server                   => 'puppetserver-0.briggs.lan'
 	}
 
   include ::profiles::consul::agent

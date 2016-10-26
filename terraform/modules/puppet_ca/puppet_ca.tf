@@ -16,7 +16,7 @@ data "template_file" "puppetca_user_data" {
 resource "digitalocean_droplet" "puppet_ca" {
   count = "${var.count}"
   image = "centos-7-x64"
-  name  = "puppetmaster-${count.index}"
+  name  = "puppetserver-${count.index}"
   region = "${var.digitalocean_region}"
   size = "${var.digitalocean_droplet_size}"
   private_networking = true
@@ -28,7 +28,7 @@ resource "digitalocean_record" "puppetca" {
   count  = "${var.count}"
   domain = "${var.digitalocean_domain}"
   type   = "A"
-  name   = "puppetmaster-${count.index}"
+  name   = "puppetserver-${count.index}"
   value  = "${element(digitalocean_droplet.puppet_ca.*.ipv4_address_private, count.index)}"
 }
 

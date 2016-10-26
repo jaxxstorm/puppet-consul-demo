@@ -39,7 +39,7 @@ output "puppetca_address" {
   value = "${module.puppet_ca.addresses}"
 }
 
-output "puppetmaster_addresses" {
+output "puppetserver_addresses" {
   value = "${module.puppetserver.addresses}"
 }
 

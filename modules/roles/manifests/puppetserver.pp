@@ -1,4 +1,4 @@
-# this sets up a puppetmaster
+# this sets up a puppetserver
 class roles::puppetserver inherits roles::base {
 
 
@@ -13,7 +13,7 @@ class roles::puppetserver inherits roles::base {
     notify  => Class['puppet']
 	}
 
-  # set up a puppetmaster
+  # set up a puppetserver
   class { '::puppet':
   	server                      => true,
   	server_foreman              => false,
@@ -24,7 +24,7 @@ class roles::puppetserver inherits roles::base {
     server_jvm_min_heap_size    => '512m',
     server_jvm_max_heap_size    => '512m',
     server_ca                   => false,
-    ca_server                   => 'puppetmaster-0.briggs.lan'
+    ca_server                   => 'puppetserver-0.briggs.lan'
 	}
 
   # creates the service
@@ -39,7 +39,7 @@ class roles::puppetserver inherits roles::base {
     ensure     => present,
     interval   => '60',
     script     => "/usr/lib64/nagios/plugins/check_http -H ${::fqdn}.briggs.lan -p 8140 -u /production/status/test?environment=production -S -k 'Accept: pson' -s '\"is_alive\":true'",
-    notes      => 'Checks the puppetmaster\'s status API to determine if the service is healthy',
+    notes      => 'Checks the puppetservers\'s status API to determine if the service is healthy',
     service_id => 'puppetserver',
   } 
 
