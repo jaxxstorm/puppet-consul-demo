@@ -25,6 +25,7 @@ runcmd:
   - mkdir -p /etc/facter/facts.d
   - r10k deploy environment -p --verbose -c /etc/puppetlabs/r10k.yaml
   - echo -e "nameserver 173.245.58.51\nnameserver 8.8.8.8" > /etc/resolv.conf
+  - /opt/puppetlabs/puppet/bin/puppet agent -t --environment=develop --server=puppetmaster-0.{domain}
 
 
 write_files:
@@ -42,8 +43,8 @@ write_files:
           basedir: '/etc/puppetlabs/code/environments'
   - path: /etc/puppetlabs/puppet/autosign.conf
     content: |
-    *.${domain}
-    puppetmaster.service.consul
+      *.${domain}
+      puppetmaster.service.consul
   - path: /etc/facter/facts.d/role.txt
     content: |
       role=puppetca

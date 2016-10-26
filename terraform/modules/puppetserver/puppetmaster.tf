@@ -29,7 +29,7 @@ resource "digitalocean_record" "puppetmaster" {
   domain = "${var.digitalocean_domain}"
   type   = "A"
   name   = "puppetmaster-${count.index+1}"
-  value  = "${element(digitalocean_droplet.puppetmaster.*.ipv4_address_private, count.index + 1)}"
+  value  = "${element(digitalocean_droplet.puppetmaster.*.ipv4_address_private, count.index)}"
 }
 
 output "addresses" {
