@@ -13,3 +13,7 @@ mod 'concat',
   :git    => 'https://github.com/puppetlabs/puppetlabs-concat.git',
   :commit => 'c70d77ca2b11666f7faae52b8079264fa0c5a8c5'
 
+mod 'consul',
+  :git    => 'https://github.com/solarkennedy/puppet-consul.git',
+  :commit => '605f5a705187f5783df20a67d0eb70b978a3ae09'
+
