@@ -7,6 +7,7 @@ class profiles::r10k {
     user    => 'root',
     hour    => '*',
     minute  => "*/5",
+    environment => 'MAILTO=""',
   }
 
 }
