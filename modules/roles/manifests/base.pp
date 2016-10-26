@@ -25,10 +25,10 @@ class roles::base {
   $consul_service_array = hiera('consul',[])
 
   # We than add the addresses of each consul server to a new array
-	$consul_cluster_nodes = consul_info($consul_service_array, 'Address')
+  $consul_cluster_nodes = consul_info($consul_service_array, 'Address')
 
   unbound::stub { $::domain :
-  	address  => '173.245.58.51',
+    address  => '173.245.58.51',
     insecure => true,
   }
 
@@ -38,7 +38,7 @@ class roles::base {
   }
 
   unbound::forward { '.':
-		address => [ '8.8.8.8', '8.8.4.4' ]
-	}
+    address => [ '8.8.8.8', '8.8.4.4' ]
+  }
 
 }
