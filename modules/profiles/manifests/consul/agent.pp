@@ -14,7 +14,7 @@ class profiles::consul::agent {
       advertise_addr      => $::ipaddress_eth1,
       encrypt             => 'cg8StVXbQJ0gPvMd9o7yrg==', # https://www.consul.io/docs/agent/encryption.html
       disable_remote_exec => true,
-      retry_join          => [ 'consulserver-0.briggs.lan', 'consulserver-1.briggs.lan', 'consuslerver-2.briggs.lan' ]
+      retry_join          => [ "consulserver-0.${::domain}", "consulserver-1.${::domain}", "consuslerver-2.${::domain}" ]
     }
   }
 

@@ -20,7 +20,7 @@ packages:
 runcmd:
   - mkdir -p /etc/facter/facts.d
   - echo -e "nameserver 173.245.58.51\nnameserver 8.8.8.8" > /etc/resolv.conf
-  - echo -e "[main]\ncertname = $(hostname).briggs.lan" >> /etc/puppetlabs/puppet/puppet.conf
+  - echo -e "[main]\ncertname = ${fqdn}" >> /etc/puppetlabs/puppet/puppet.conf
   - until /opt/puppetlabs/puppet/bin/puppet agent -t --environment=develop --server=puppetserver-0.${domain}; do echo "puppet failed, retry in 10 seconds"; sleep 10; done  
 
 write_files:

@@ -23,7 +23,7 @@ class roles::puppetca inherits roles::base {
     server_jvm_min_heap_size    => '512m',
     server_jvm_max_heap_size    => '512m',
     server_ca                   => true,
-    ca_server                   => 'puppetserver-0.briggs.lan'
+    ca_server                   => "puppetserver-0.${::domain}"
 	}
 
   include ::profiles::consul::agent

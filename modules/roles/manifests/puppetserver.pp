@@ -24,7 +24,7 @@ class roles::puppetserver inherits roles::base {
     server_jvm_min_heap_size    => '512m',
     server_jvm_max_heap_size    => '512m',
     server_ca                   => false,
-    ca_server                   => 'puppetserver-0.briggs.lan'
+    ca_server                   => "puppetserver-0.${::fqdn}"
 	}
 
   # creates the service
@@ -38,7 +38,7 @@ class roles::puppetserver inherits roles::base {
   ::consul::check { 'puppetserver_healthcheck':
     ensure     => present,
     interval   => '60',
-    script     => "/usr/lib64/nagios/plugins/check_http -H ${::fqdn}.briggs.lan -p 8140 -u /production/status/test?environment=production -S -k 'Accept: pson' -s '\"is_alive\":true'",
+    script     => "/usr/lib64/nagios/plugins/check_http -H ${::fqdn} -p 8140 -u /production/status/test?environment=production -S -k 'Accept: pson' -s '\"is_alive\":true'",
     notes      => 'Checks the puppetservers\'s status API to determine if the service is healthy',
     service_id => 'puppetserver',
   } 
