@@ -32,3 +32,7 @@ mod 'epel',
 mod 'resolv_conf',
   :git    => 'https://github.com/saz/puppet-resolv_conf.git',
   :commit => 'd3c16527b1efb3a820c3b0250748da1d3ca04da7'
+
+mod 'unbound',
+  :git    => 'https://github.com/xaque208/puppet-unbound.git',
+  :commit => '28f68fb7a83403a0d2b947e0d48179a45020e9ad'
