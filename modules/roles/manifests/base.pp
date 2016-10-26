@@ -21,7 +21,7 @@ class roles::base {
 	$consul_cluster_nodes = consul_info($consul_service_array, 'Address')
 
   unbound::forward { 'service.consul':
-    address => $consul_cluster_nodes
+    address => suffix($consul_cluster_nodes, '@8600')
   }
 
 }
