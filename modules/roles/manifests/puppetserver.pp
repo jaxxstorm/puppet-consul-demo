@@ -1,6 +1,9 @@
 # this sets up a puppetmaster
 class roles::puppetserver inherits roles::base {
 
+
+  include ::profiles::r10k
+
   file { '/etc/puppetlabs/puppet/hiera.yaml':
 		ensure  => present,
     content => template('roles/puppetserver/hiera.yaml.erb'),
