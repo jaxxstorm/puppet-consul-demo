@@ -7,7 +7,7 @@ yum_repos:
     name: PuppetLabs
 
 packages:
-  - puppetserver
+  - puppet-agent
   - ruby
   - ruby-devel
   - git
@@ -17,8 +17,6 @@ packages:
 runcmd:
   - gem install r10k
   - sed -i 's/2g/512m/g' /etc/sysconfig/puppetserver
-  - sed -i '/\[master\]/a dns_alt_names=puppetmaster-0.${domain},puppetmaster.service.consul' /etc/puppetlabs/puppet/puppet.conf
-  - sed -i '/\[master\]/a ca=true' /etc/puppetlabs/puppet/puppet.conf
   - systemctl start puppetserver.service
   - systemctl enable puppetserver.service
   - mkdir -p /etc/facter/facts.d
@@ -41,7 +39,7 @@ write_files:
           basedir: '/etc/puppetlabs/code/environments'
   - path: /etc/facter/facts.d/role.txt
     content: |
-      role=puppetca
+      role=puppetserver
 
 output:
   all: ">> /var/log/cloud-init.log"
