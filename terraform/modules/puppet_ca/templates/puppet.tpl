@@ -17,6 +17,7 @@ packages:
 runcmd:
   - gem install r10k
   - sed -i 's/2g/512m/g' /etc/sysconfig/puppetserver
+  - sed -i '/\[master\]/a dns_alt_names=puppetmaster-0.${domain},puppetmaster.service.consul' /etc/puppetlabs/puppet/puppet.conf
   - systemctl start puppetserver.service
   - systemctl enable puppetserver.service
   - mkdir -p /etc/facter/facts.d
