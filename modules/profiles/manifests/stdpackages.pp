@@ -9,4 +9,8 @@ class profiles::stdpackages {
     ensure => present,
   }
 
+  package { 'bind-utils':
+    ensure => present,
+  }
+
 }
