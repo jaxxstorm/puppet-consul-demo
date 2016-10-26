@@ -4,7 +4,7 @@ variable "digital_ocean_token" {}
 variable "digital_ocean_domain" {}
 variable "digitalocean_region" { default = "lon1" }
 variable "digitalocean_droplet_size" { default = "1gb" }
-variable "count" { default=3 }
+variable "count" { default=1 }
 
 provider "digitalocean" {
   token = "${var.digital_ocean_token}"
@@ -37,4 +37,8 @@ resource "digitalocean_record" "puppetmaster" {
   type   = "A"
   name   = "puppetmaster-${count.index}"
   value  = "${element(digitalocean_droplet.puppetmaster.*.ipv4_address_private, count.index)}"
+}
+
+output "addresses" {
+  value = ["${digitalocean_droplet.puppetmaster.*.ipv4_address}"]
 }
