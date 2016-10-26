@@ -10,6 +10,7 @@ class roles::consulserver inherits roles::base {
       ui_dir              => '/opt/consul-ui',
       node_name           => "${::fqdn}",
       log_level           => "DEBUG",
+      advertise_addr      => "${::ipaddress_eth1}",
       encrypt             => "cg8StVXbQJ0gPvMd9o7yrg==", # https://www.consul.io/docs/agent/encryption.html
       bootstrap_expect    => 3,
       disable_remote_exec => true,
