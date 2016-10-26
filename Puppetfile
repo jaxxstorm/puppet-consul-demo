@@ -36,3 +36,7 @@ mod 'resolv_conf',
 mod 'unbound',
   :git    => 'https://github.com/xaque208/puppet-unbound.git',
   :commit => '28f68fb7a83403a0d2b947e0d48179a45020e9ad'
+
+mod 'hiera_consul',
+  :git    => 'https://github.com/lynxman/hiera-consul.git',
+  :commit => '6fb5d5f674a96426ae11e612b7ccbb3b5c4165d4'
