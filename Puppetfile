@@ -21,3 +21,7 @@ mod 'archive',
   :git    => 'https://github.com/voxpupuli/puppet-archive.git',
   :commit => '3ac950cc46572308a93b56429cbd4cfda8c91dd9'
 
+mod 'digitalocean',
+  :git    => 'https://github.com/jethrocarr/puppet-digitalocean.git',
+  :commit => '9d6f26ba922ef20fa11d56e97f892703a56130cd'
+
