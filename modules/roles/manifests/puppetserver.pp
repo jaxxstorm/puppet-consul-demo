@@ -7,7 +7,7 @@ class roles::puppetserver inherits roles::base {
     mode    => '0644',
     owner   => 'puppet',
     group   => 'puppet',
-    notify  => Service['puppetmaster']
+    notify  => Class['puppet']
 	}
 
   # set up a puppetmaster
