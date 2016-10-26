@@ -1,5 +1,5 @@
 # this sets up a puppetmaster
-class roles::puppetserver inherits roles::base {
+class roles::puppetca inherits roles::base {
 
   file { '/etc/puppetlabs/puppet/hiera.yaml':
 		ensure  => present,
