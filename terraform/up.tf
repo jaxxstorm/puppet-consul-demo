@@ -28,3 +28,7 @@ module "puppetserver" {
   digitalocean_domain = "${var.digital_ocean_domain}"
   digitalocean_keys = "${digitalocean_ssh_key.personal.id}"
 }
+
+output "puppetca_address" {
+  value = "${module.puppet_ca.addresses}"
+}
