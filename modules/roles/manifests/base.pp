@@ -2,6 +2,6 @@
 # All hosts get this configured
 class roles::base {
 
-
+  include ::profiles::stdpackages
 
 }
