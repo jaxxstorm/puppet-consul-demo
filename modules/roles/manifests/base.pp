@@ -17,4 +17,11 @@ class roles::base {
 
   include ::unbound
 
+  $consul_service_array = hiera('consul',[])
+	$consul_cluster_nodes = consul_info($consul_service_array, [ 'Address', 'Port' ], '@')
+
+  unbound::forward { 'service.consul':
+    address => $consul_cluster_nodes
+  }
+
 }

@@ -5,10 +5,3 @@ unbound::interfaces:
   - '127.0.0.1'
 unbound::access:
   - '127.0.0.1'
-unbound::forward:
-  'service.consul':
-    forward_first: 'yes'
-    address:
-    - '10.131.34.82@8600'
-    - '10.131.34.81@8600'
-    - '10.131.34.27@8600'
