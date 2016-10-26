@@ -13,4 +13,6 @@ class roles::base {
     stage => 'pre'
   }
 
+  include ::resolv_conf
+
 }

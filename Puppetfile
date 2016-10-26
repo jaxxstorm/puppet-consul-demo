@@ -29,3 +29,6 @@ mod 'epel',
   :git    => 'https://github.com/stahnma/puppet-module-epel.git',
   :commit => '292ff3311d5348a2449a53f8643dd20e43be52f1'
 
+mod 'resolv_conf',
+  :git    => 'https://github.com/saz/puppet-resolv_conf.git',
+  :commit => 'd3c16527b1efb3a820c3b0250748da1d3ca04da7'
