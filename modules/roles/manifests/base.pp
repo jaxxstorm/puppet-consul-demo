@@ -9,7 +9,7 @@ class roles::base {
   }
 
   # Need all std package before we do everything else
-  class { '::profiles::stdpackage':
+  class { '::profiles::stdpackages':
     stage => 'pre'
   }
 
