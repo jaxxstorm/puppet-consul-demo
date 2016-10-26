@@ -17,3 +17,7 @@ mod 'consul',
   :git    => 'https://github.com/solarkennedy/puppet-consul.git',
   :commit => '605f5a705187f5783df20a67d0eb70b978a3ae09'
 
+mod 'archive',
+  :git    => 'https://github.com/voxpupuli/puppet-archive.git',
+  :commit => '3ac950cc46572308a93b56429cbd4cfda8c91dd9'
+
