@@ -2,12 +2,12 @@
 class roles::puppetserver inherits roles::base {
 
   file { '/etc/puppetlabs/puppet/hiera.yaml':
-		ensure => present,
-    source => template('roles/puppetserver/hiera.yaml.erb'),
-    mode   => '0644',
-    owner  => 'puppet',
-    group  => 'puppet',
-    notify => Service['puppetmaster']
+		ensure  => present,
+    content => template('roles/puppetserver/hiera.yaml.erb'),
+    mode    => '0644',
+    owner   => 'puppet',
+    group   => 'puppet',
+    notify  => Service['puppetmaster']
 	}
 
   # set up a puppetmaster
