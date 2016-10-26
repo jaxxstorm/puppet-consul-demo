@@ -1,10 +1,3 @@
-# Token
-variable "digitalocean_domain" {}
-variable "digitalocean_keys" { }
-variable "digitalocean_region" { default = "lon1" }
-variable "digitalocean_droplet_size" { default = "1gb" }
-variable "count" { default=1 }
-
 data "template_file" "puppetca_user_data" {
   template = "${file("${path.module}/templates/puppet.tpl")}"
   count = "${var.count}"
@@ -34,6 +27,3 @@ resource "digitalocean_record" "puppetca" {
   value  = "${element(digitalocean_droplet.puppet_ca.*.ipv4_address_private, count.index)}"
 }
 
-output "addresses" {
-  value = ["${digitalocean_droplet.puppet_ca.*.ipv4_address}"]
-}

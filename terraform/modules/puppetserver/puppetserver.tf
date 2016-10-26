@@ -34,6 +34,3 @@ resource "digitalocean_record" "puppetserver" {
   value  = "${element(digitalocean_droplet.puppetserver.*.ipv4_address_private, count.index)}"
 }
 
-output "addresses" {
-  value = ["${digitalocean_droplet.puppetserver.*.ipv4_address}"]
-}
