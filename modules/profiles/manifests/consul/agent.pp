@@ -1,5 +1,5 @@
 # A consul server instance
-class profiles::consul::server {
+class profiles::consul::agent {
 
   # no server config option
   class { '::consul':
