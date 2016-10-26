@@ -1,4 +1,7 @@
 #cloud-config
+hostname: "${fqdn}"
+fqdn: "${fqdn}"
+
 yum_repos:
   puppet:
     baseurl: https://yum.puppetlabs.com/el/7/PC1/x86_64/
@@ -24,6 +27,7 @@ write_files:
   - path: /etc/facter/facts.d/role.txt
     content: |
       role=consulserver
+      domain=${domain}
 
 output:
   all: ">> /var/log/cloud-init.log"

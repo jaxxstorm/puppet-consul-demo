@@ -9,7 +9,9 @@ data "template_file" "consulserver_user_data" {
   template = "${file("${path.module}/templates/consulserver.tpl")}"
   count = "${var.count}"
   vars {
+    hostname = "consulserver-${count.index}"
     domain = "${var.digitalocean_domain}"
+    fqdn = "consulserver-${count.index}.${var.digitalocean_domain}"
   }
 }
 

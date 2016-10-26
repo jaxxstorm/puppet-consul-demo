@@ -9,7 +9,9 @@ data "template_file" "puppetca_user_data" {
   template = "${file("${path.module}/templates/puppet.tpl")}"
   count = "${var.count}"
   vars {
+    hostname = "puppetserver-${count.index}"
     domain = "${var.digitalocean_domain}"
+    fqdn   = "puppetserver-${count.index}.${var.digitalocean_domain}"
   }
 }
 
