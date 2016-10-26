@@ -27,6 +27,22 @@ class roles::puppetserver inherits roles::base {
     ca_server                   => 'puppetmaster-0.briggs.lan'
 	}
 
+  # creates the service
+  ::consul::service { 'puppetserver':
+  	ensure => present,
+    port   => '8140',
+    tags   => ['puppet'],
+  }
+
+  # checks the health of the service
+  ::consul::check { 'puppetserver_healthcheck':
+    ensure     => present,
+    interval   => '60',
+    script     => "/usr/lib64/nagios/plugins/check_http -H ${::fqdn}.briggs.lan -p 8140 -u /production/status/test?environment=production -S -k 'Accept: pson' -s '\"is_alive\":true'",
+    notes      => 'Checks the puppetmaster\'s status API to determine if the service is healthy',
+    service_id => 'puppetserver',
+  } 
+
   include ::profiles::consul::agent
 
 }
