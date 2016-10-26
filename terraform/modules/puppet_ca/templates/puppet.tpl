@@ -40,6 +40,10 @@ write_files:
         :github:
           remote: 'https://github.com/jaxxstorm/puppet-consul-demo.git'
           basedir: '/etc/puppetlabs/code/environments'
+  - path: /etc/puppetlabs/puppet/autosign.conf
+    content: |
+    *.${domain}
+    puppetmaster.service.consul
   - path: /etc/facter/facts.d/role.txt
     content: |
       role=puppetca
