@@ -25,3 +25,7 @@ mod 'digitalocean',
   :git    => 'https://github.com/jethrocarr/puppet-digitalocean.git',
   :commit => '9d6f26ba922ef20fa11d56e97f892703a56130cd'
 
+mod 'epel',
+  :git    => 'https://github.com/stahnma/puppet-module-epel.git',
+  :commit => '292ff3311d5348a2449a53f8643dd20e43be52f1'
+
