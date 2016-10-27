@@ -13,6 +13,9 @@ class roles::base {
     stage => 'pre'
   }
 
+  # Everything needs puppet configured!
+  include ::puppet
+
   # We need to make sure our local resolv.conf can also see consul
   # See hiera for the settings, notice localhost is first
   include ::resolv_conf

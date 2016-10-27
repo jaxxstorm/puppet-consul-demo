@@ -1,6 +1,6 @@
 puppet::server_ruby_load_paths: [ '/opt/puppetlabs/puppet/lib/ruby/vendor_ruby', '/opt/puppetlabs/puppet/cache/lib' ]
 puppet::environment: 'develop'
-puppet::puppetmaster: 'puppet.service.consul'
+puppet::puppetmaster: 'puppetserver.service.consul'
 resolv_conf::nameservers: [ "127.0.0.1", "173.245.58.51", "8.8.8.8"]
 resolv_conf::searchpath: [ "%{::domain}" ]
 unbound::val_permissive_mode: true # Disable DNSSec
