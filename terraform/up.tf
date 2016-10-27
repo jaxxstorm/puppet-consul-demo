@@ -27,12 +27,15 @@ module "puppetserver" {
   source = "modules/puppetserver"
   digitalocean_domain = "${var.digital_ocean_domain}"
   digitalocean_keys = "${digitalocean_ssh_key.personal.id}"
+  count = 2
+  puppet_ca = ["${module.puppet_ca.name}"]
 }
 
 module "consulserver" {
   source = "modules/consulserver"
   digitalocean_domain = "${var.digital_ocean_domain}"
   digitalocean_keys = "${digitalocean_ssh_key.personal.id}"
+  puppet_ca = ["${module.puppet_ca.name}"]
 }
 
 output "puppetca_address" {

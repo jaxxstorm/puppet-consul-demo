@@ -15,7 +15,7 @@ class profiles::consul::server {
       encrypt             => 'cg8StVXbQJ0gPvMd9o7yrg==', # https://www.consul.io/docs/agent/encryption.html
       bootstrap_expect    => 3,
       disable_remote_exec => true,
-      retry_join          => [ "consulserver-0.${::domain}", "consulserver-1.${::domain}", "consuslerver-2.${::domain}" ]
+      retry_join          => [ "consulserver-0.${::domain}", "consulserver-1.${::domain}", "consulserver-2.${::domain}" ]
     }
   }
 
