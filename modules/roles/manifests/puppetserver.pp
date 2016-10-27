@@ -14,18 +14,7 @@ class roles::puppetserver inherits roles::base {
   }
 
   # set up a puppetserver
-  class { '::puppet':
-    server                      => true,
-    server_foreman              => false,
-    server_reports              => 'store',
-    server_external_nodes       => '',
-    server_environments         => [],
-    server_common_modules_path => [],
-    server_jvm_min_heap_size   => '512m',
-    server_jvm_max_heap_size   => '512m',
-    server_ca                  => false,
-    ca_server                  => "puppetserver-0.${::domain}"
-  }
+  include ::profiles::puppet
 
   # creates the service
   ::consul::service { 'puppetserver':

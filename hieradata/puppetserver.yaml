@@ -1,0 +1,11 @@
+puppet::server: true
+puppet::server_foreman: false
+puppet::server_reports: 'store'
+puppet::server_external_nodes: ''
+puppet::server_environments: [ ]
+puppet::server_common_modules_path: [ ]
+puppet::server_jvm_min_heap_size: '512m'
+puppet::server_jvm_max_heap_size: '512m'
+puppet::server_ca: false
+puppet::ca_server: 'puppetserver-0.%{::domain}'
+puppet::dns_alt_names: [ 'puppet.service.consul', 'puppetserver.service.consul', 'puppetmaster.service.consul' ]
