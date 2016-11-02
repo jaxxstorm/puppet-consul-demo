@@ -10,7 +10,6 @@ yum_repos:
     name: PuppetLabs
 
 packages:
-  - puppetserver
   - ruby
   - ruby-devel
   - git
@@ -18,6 +17,8 @@ packages:
   - bind-utils
  
 runcmd:
+  - yum install -y https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+  - yum install -y puppetserver
   - sed -i 's/2g/512m/g' /etc/sysconfig/puppetserver
   - mkdir -p /etc/facter/facts.d
   - echo -e "nameserver 173.245.58.51\nnameserver 8.8.8.8" > /etc/resolv.conf
