@@ -2,6 +2,7 @@
 variable "digital_ocean_token" {}
 variable "digital_ocean_domain" {}
 variable "ssh_public_key" {}
+variable "number_of_puppetservers" {}
 
 provider "digitalocean" {
   token = "${var.digital_ocean_token}"
@@ -27,7 +28,7 @@ module "puppetserver" {
   source = "modules/puppetserver"
   digitalocean_domain = "${var.digital_ocean_domain}"
   digitalocean_keys = "${digitalocean_ssh_key.personal.id}"
-  count = 2
+  count = "${var.number_of_puppetservers}"
   puppet_ca = ["${module.puppet_ca.name}"]
 }
 
