@@ -24,6 +24,7 @@ runcmd:
   - sed -i '/\[master\]/a dns_alt_names=puppetserver-0.${domain},puppetserver.service.consul' /etc/puppetlabs/puppet/puppet.conf
   - sed -i '/\[master\]/a ca=true' /etc/puppetlabs/puppet/puppet.conf
   - sed -i '/\[master\]/a autosign=true' /etc/puppetlabs/puppet/puppet.conf
+  - sed -i 's|/opt/puppetlabs/puppet/lib/ruby/vendor_ruby|/opt/puppetlabs/puppet/lib/ruby/vendor_ruby,/opt/puppetlabs/puppet/cache/lib|g' /etc/puppetlabs/puppetserver/conf.d/puppetserver.conf
   - systemctl start puppetserver.service
   - systemctl enable puppetserver.service
   - mkdir -p /etc/facter/facts.d
