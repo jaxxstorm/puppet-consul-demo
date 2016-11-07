@@ -22,10 +22,10 @@ Next, "get" the modules. This moves the modules to `.terraform` within this dir:
 terraform get
 ```
 
-Finally, run the config:
+Finally, run the config, and specify how many puppetservers you want:
 
 ```
-terraform apply -var-file=me.tfvars
+terraform apply -var-file=me.tfvars -var 'number_of_puppetservers=2'
 ```
 
 
