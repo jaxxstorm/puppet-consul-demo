@@ -44,3 +44,7 @@ mod 'hiera_consul',
 mod 'r10k',
   :git    => 'https://github.com/voxpupuli/r10k.git',
   :commit => 'e584e3ae241307c6af01a0de87f6efbf8c058aba'
+
+mod 'git',
+  :git    => 'https://github.com/puppetlabs/puppetlabs-git.git',
+  :commit => '5e862242466de4ae654a5de5ef4c1bc4e4b9f92e'
