@@ -2,15 +2,15 @@
 
 ## Security Notice
 
-The terraform config will, by default, provision digital ocean droplets which are exposed externally, and it will also make the [consul web ui](https://www.consul.io/intro/getting-started/ui.html) accessible on port 8500. This is a major security consideration - do not run the terraform config unless you're absolutely sure what you're doing.
+The terraform config will, by default, provision Digital Ocean droplets which are exposed externally, and it will also make the [consul web ui](https://www.consul.io/intro/getting-started/ui.html) accessible on port 8500. This is a major security consideration - do not run the terraform config unless you're absolutely sure what you're doing.
 
-I will accept no liability if your digital ocean droplets get hacked. *You have been warned*
+I will accept no liability if your Digital Ocean droplets get hacked. *You have been warned*
 
 ## About
 
 This module contains some boilerplate puppet code, as well as some terraform config for spinning up a consul cluster, and scaling your puppetservers horizontally using consul. It will:
 
- - Launch some digital ocean droplets using terraform (instructions [here](https://github.com/jaxxstorm/puppet-consul-demo/blob/production/terraform/README.md)
+ - Launch some Digital Ocean droplets using terraform (instructions [here](https://github.com/jaxxstorm/puppet-consul-demo/blob/production/terraform/README.md))
  - Configure an initial CA puppetserver and download this repo using [r10k](https://github.com/puppetlabs/r10k) to the `$codedir`
  - Install & configure a consul cluster with 3 servers
  - Configure [Unbound](https://www.unbound.net/) to forward DNS queries for the domain consul is authoritative for to the consul cluster

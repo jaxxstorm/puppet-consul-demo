@@ -19,7 +19,7 @@ packages:
 runcmd:
   - yum install -y https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
   - yum install -y puppetserver
-  - gem install r10k
+  - gem install --no-ri --no-rdoc r10k
   - sed -i 's/2g/512m/g' /etc/sysconfig/puppetserver
   - sed -i '/\[master\]/a dns_alt_names=puppetserver-0.${domain},puppetserver.service.consul' /etc/puppetlabs/puppet/puppet.conf
   - sed -i '/\[master\]/a ca=true' /etc/puppetlabs/puppet/puppet.conf
