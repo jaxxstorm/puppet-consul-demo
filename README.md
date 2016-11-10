@@ -43,3 +43,11 @@ This repo makes use of several third party modules. They can be found in the `Pu
  - [saz-resolv_conf](https://github.com/saz/puppet-resolv_conf.git)
  - [xaque208-unbound](https://github.com/xaque208/puppet-unbound.git)
  - [lynxman-hiera-consul](https://github.com/lynxman/hiera-consul.git)
+
+## Resources
+
+Some other consul resources which may help you:
+
+ - [Stripe blog post](https://stripe.com/blog/service-discovery-at-stripe) about how they're using Consul
+ - [Another blog post](https://sreeninet.wordpress.com/2016/04/17/service-discovery-with-consul/) with lots of Consul description
+ - [Consul + MySQL](https://www.percona.com/blog/2016/10/10/consul-architecture/) from Percona
