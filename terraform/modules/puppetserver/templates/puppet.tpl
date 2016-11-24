@@ -25,7 +25,7 @@ runcmd:
   - echo -e "[main]\ncertname = ${fqdn}" >> /etc/puppetlabs/puppet/puppet.conf
   - sed -i '/\[main\]/a dns_alt_names=puppet.service.consul,puppetserver.service.consul,puppetmaster.service.consul' /etc/puppetlabs/puppet/puppet.conf
   - until /opt/puppetlabs/puppet/bin/puppet agent -t --environment=develop --server=puppetserver-0.${domain}; do echo "puppet failed, retry in 10 seconds"; sleep 10; done
-  - until grep "@8600" /etc/unbound/unbound.conf; do echo "Consul still not configured, retry in 10 seconds"; sleep 10; /opt/puppetlabs/puppet/bin/puppet agent -t --environment=develop --server=puppetserver-0.briggs.lan; done
+  - until grep "@8600" /etc/unbound/unbound.conf; do echo "Consul still not configured, retry in 10 seconds"; sleep 10; /opt/puppetlabs/puppet/bin/puppet agent -t --environment=develop --server=puppetserver-0.${domain}; done
 
 write_files:
   - path: /etc/puppetlabs/r10k.yaml
