@@ -22,7 +22,7 @@ class profiles::consul::server {
   class { '::vault':
     backend  => {
       consul => {
-        address       => "%{::fqdn}:8500",
+        address       => "${::fqdn}:8500",
         path          => "vault",
       }
     },
