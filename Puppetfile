@@ -50,5 +50,5 @@ mod 'git',
   :commit => '5e862242466de4ae654a5de5ef4c1bc4e4b9f92e'
 
 mod 'vault',
-  :git    => 'https://github.com/jsok/puppet-vault.git'
+  :git    => 'https://github.com/jsok/puppet-vault.git',
   :commit => '884157349fb09d3fa7c56f6364227ecb4b9ba2df'
