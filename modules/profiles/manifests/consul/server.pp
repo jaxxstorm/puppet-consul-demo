@@ -25,7 +25,7 @@ class profiles::consul::server {
         address       => "%{::fqdn}:8500",
         path          => "vault",
       }
-    }
+    },
     listener => {
       address       => "0.0.0.0:8200",
       tls_cert_file => "/etc/puppetlabs/puppet/ssl/certs/${::fqdn}.pem",
