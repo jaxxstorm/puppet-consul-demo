@@ -27,10 +27,11 @@ class profiles::consul::server {
       }
     },
     listener => {
-      address       => "0.0.0.0:8200",
-      tls_cert_file => "/etc/puppetlabs/puppet/ssl/certs/${::fqdn}.pem",
-      tls_key_file  => "/etc/puppetlabs/puppet/ssl/private_keys/${::fqd}.pem",
+      tcp           => {
+        address       => "0.0.0.0:8200",
+        tls_cert_file => "/etc/puppetlabs/puppet/ssl/certs/${::fqdn}.pem",
+        tls_key_file  => "/etc/puppetlabs/puppet/ssl/private_keys/${::fqd}.pem",
+      }
     }
   }
-
 }
