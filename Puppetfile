@@ -52,3 +52,7 @@ mod 'git',
 mod 'vault',
   :git    => 'https://github.com/jsok/puppet-vault.git',
   :commit => '884157349fb09d3fa7c56f6364227ecb4b9ba2df'
+
+mod 'mysql',
+  :git    => 'https://github.com/puppetlabs/puppetlabs-mysql.git',
+  :commit => 'b81fd5615da1a780df3e09e854154a42e49a231d'

@@ -3,6 +3,7 @@ variable "digital_ocean_token" {}
 variable "digital_ocean_domain" {}
 variable "ssh_public_key" {}
 variable "number_of_puppetservers" {}
+variable "number_of_databases" { default = 2 }
 
 provider "digitalocean" {
   token = "${var.digital_ocean_token}"
