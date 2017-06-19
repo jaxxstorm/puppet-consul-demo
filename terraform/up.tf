@@ -39,6 +39,15 @@ module "consulserver" {
   puppet_ca = ["${module.puppet_ca.name}"]
 }
 
+
+module "mysql" {
+  source = "modules/mysql"
+  digitalocean_domain = "${var.digital_ocean_domain}"
+  digitalocean_keys = "${digitalocean_ssh_key.personal.id}"
+  puppet_ca = ["${module.puppet_ca.name}"]
+  count = "${var.number_of_databases}"
+}
+
 output "puppetca_address" {
   value = "${module.puppet_ca.addresses}"
 }
@@ -51,4 +60,7 @@ output "consulserver_addresses" {
   value = "${module.consulserver.addresses}"
 }
 
+output "mysql_addresses" {
+  value = "${module.mysql.addresses}"
+}
 
