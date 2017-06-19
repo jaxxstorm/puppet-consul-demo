@@ -5,7 +5,7 @@ class profiles::vault {
     mode   => '0700',
     owner  => 'vault',
     group  => 'vault',
-  } ->
+  }
 
   file { '/etc/vault/ssl/cert.pem':
     ensure  => file,
@@ -14,7 +14,7 @@ class profiles::vault {
     owner   => 'vault',
     group   => 'vault',
     require => File['/etc/vault/ssl'],
-  } ->
+  }
 
   file { '/etc/vault/ssl/key.pem':
     ensure  => file,
@@ -23,7 +23,7 @@ class profiles::vault {
     owner   => 'vault',
     group   => 'vault',
     require => File['/etc/vault/ssl'],
-  } ->
+  }
 
   class { '::vault':
     backend  => {
