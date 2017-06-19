@@ -14,6 +14,7 @@ class profiles::vault {
     owner   => 'vault',
     group   => 'vault',
     require => File['/etc/vault/ssl'],
+    notify  => Service['vault'],
   }
 
   file { '/etc/vault/ssl/key.pem':
@@ -24,6 +25,7 @@ class profiles::vault {
     group     => 'vault',
     show_diff => false,
     require   => File['/etc/vault/ssl'],
+    notify    => Service['vault'],
   }
 
   class { '::vault':
