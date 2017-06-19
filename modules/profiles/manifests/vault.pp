@@ -17,12 +17,13 @@ class profiles::vault {
   }
 
   file { '/etc/vault/ssl/key.pem':
-    ensure  => file,
-    source  => "/etc/puppetlabs/puppet/ssl/private_keys/${::fqdn}.pem",
-    mode    => '0600',
-    owner   => 'vault',
-    group   => 'vault',
-    require => File['/etc/vault/ssl'],
+    ensure    => file,
+    source    => "/etc/puppetlabs/puppet/ssl/private_keys/${::fqdn}.pem",
+    mode      => '0600',
+    owner     => 'vault',
+    group     => 'vault',
+    show_diff => false,
+    require   => File['/etc/vault/ssl'],
   }
 
   class { '::vault':
