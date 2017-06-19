@@ -38,7 +38,7 @@ class profiles::vault {
         tls_cert_file => '/etc/vault/ssl/cert.pem',
         tls_key_file  => '/etc/vault/ssl/key.pem', 
       }
-		}
+		},
 		require [ File['/etc/vault/ssl/cert.pem', '/etc/vault/ssl/key.pem'],
 	}
 
