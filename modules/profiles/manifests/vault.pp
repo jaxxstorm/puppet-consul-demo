@@ -5,7 +5,7 @@ class profiles::vault {
     mode   => '0700',
     owner  => 'vault',
     group  => 'vault',
-  }
+  } ->
 
   file { '/etc/vault/ssl/cert.pem':
     ensure  => file,
@@ -14,7 +14,7 @@ class profiles::vault {
     owner   => 'vault',
     group   => 'vault',
     require => File['/etc/vault/ssl'],
-  }
+  } ->
 
   file { '/etc/vault/ssl/key.pem':
     ensure  => file,
@@ -23,7 +23,7 @@ class profiles::vault {
     owner   => 'vault',
     group   => 'vault',
     require => File['/etc/vault/ssl'],
-  }
+  } ->
 
   class { '::vault':
     backend  => {
@@ -38,8 +38,7 @@ class profiles::vault {
         tls_cert_file => '/etc/vault/ssl/cert.pem',
         tls_key_file  => '/etc/vault/ssl/key.pem',
       },
-    },
-    require  => [ File['/etc/vault/ssl/cert.pem'], File['/etc/vault/ssl/key.pem'] ],
+    }
   }
 
 }
