@@ -44,4 +44,6 @@ class roles::base {
     address => [ '8.8.8.8', '8.8.4.4' ]
   }
 
+  include ::mysql::client
+
 }
