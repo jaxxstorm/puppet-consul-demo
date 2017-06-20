@@ -1,12 +1,6 @@
 # mysql profile
 class profiles::mysql (
- $privileges         = [ 'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CREATE',
-                          'DROP', 'RELOAD', 'PROCESS', 'GRANT OPTION', 'REFERENCES',
-                          'INDEX', 'ALTER', 'SHOW DATABASES', 'CREATE TEMPORARY TABLES',
-                          'LOCK TABLES', 'EXECUTE', 'REPLICATION SLAVE',
-                          'REPLICATION CLIENT', 'CREATE VIEW', 'SHOW VIEW',
-                          'CREATE ROUTINE', 'ALTER ROUTINE', 'CREATE USER',
-                          'EVENT', 'TRIGGER' ] 
+ $privileges         = [ 'ALL' ],
 ){
 
 
