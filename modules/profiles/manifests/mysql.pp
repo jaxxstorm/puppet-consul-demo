@@ -20,16 +20,16 @@ class profiles::mysql (
     }
   }
 
-  mysql_user { 'vault@consulserver-%.briggs.lan':
+  mysql_user { 'vault@%':
     ensure        => present,
     password_hash => mysql_password('vault')
   }
 
-  mysql_grant { 'vault@consulserver-%.briggs.lan/*.*':
+  mysql_grant { 'vault@%/*.*':
     ensure     => present,
     privileges => $privileges,
     table 		 => '*.*',
-    user       => 'vault@consulserver-%.briggs.lan',
-    require    => Mysql_user['vault@consulserver-%.briggs.lan'],
+    user       => 'vault@%',
+    require    => Mysql_user['vault@%'],
   }
 }
