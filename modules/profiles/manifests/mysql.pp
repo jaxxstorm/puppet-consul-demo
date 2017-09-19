@@ -24,6 +24,7 @@ class profiles::mysql (
     privileges => $privileges,
     table 		 => '*.*',
     user       => 'vault@%',
+    options    => ['GRANT'],
     require    => Mysql_user['vault@%'],
   }
 }
