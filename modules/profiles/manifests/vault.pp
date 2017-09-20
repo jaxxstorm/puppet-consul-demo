@@ -1,4 +1,6 @@
-class profiles::vault {
+class profiles::vault (
+  $consul_address = "${::fqdn}:8500}" 
+){
 
   file { '/etc/vault/ssl':
     ensure => directory,
@@ -31,7 +33,7 @@ class profiles::vault {
   class { '::vault':
     backend  => {
       consul => {
-        address => "${::fqdn}:8500",
+        address => $consul_address,
         path    => "vault/${::digital_ocean_region}",
       },
     },
