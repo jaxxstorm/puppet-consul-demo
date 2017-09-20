@@ -1,6 +1,6 @@
 # Configures a consulserver
 class roles::consulserver inherits roles::base {
 
-  ::profiles::consul::server
+  include ::profiles::consul::server
 
 }
