@@ -1,5 +1,5 @@
 class profiles::vault (
-  $consul_address = "${::fqdn}:8500}" 
+  $consul_address = "${::fqdn}:8500" 
 ){
 
   file { '/etc/vault/ssl':
