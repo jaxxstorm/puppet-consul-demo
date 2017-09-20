@@ -1,3 +1,7 @@
+resource "digitalocean_tag" "vault" {
+  name = "vault"
+}
+
 data "template_file" "vaultserver_user_data" {
   template = "${file("${path.module}/templates/vaultserver.tpl")}"
   count    = "${var.count}"
@@ -17,6 +21,7 @@ resource "digitalocean_droplet" "vaultserver" {
   size               = "${var.digitalocean_droplet_size}"
   private_networking = true
   ssh_keys           = ["${var.digitalocean_keys}"]
+  tags               = ["${digitalocean_tag.vault.id}"]
   user_data          = "${element(data.template_file.vaultserver_user_data.*.rendered,count.index)}"
 }
 

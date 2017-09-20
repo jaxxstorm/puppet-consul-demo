@@ -11,6 +11,10 @@ variable "number_of_databases" {
   default = 2
 }
 
+variable "number_of_vaultservers" {
+  default = 3
+}
+
 provider "digitalocean" {
   token = "${var.digital_ocean_token}"
 }
@@ -51,6 +55,7 @@ module "vaultserver" {
   digitalocean_domain = "${var.digital_ocean_domain}"
   digitalocean_keys   = "${digitalocean_ssh_key.personal.id}"
   puppet_ca           = ["${module.puppet_ca.name}"]
+  count               = "${var.number_of_vaultservers}"
 }
 
 module "mysql" {
@@ -78,5 +83,5 @@ output "mysql_addresses" {
 }
 
 output "vault_addresses" {
-  value = "${module.vault.addresses}"
+  value = "${module.vaultserver.addresses}"
 }
