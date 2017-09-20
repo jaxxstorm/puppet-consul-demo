@@ -76,3 +76,7 @@ output "consulserver_addresses" {
 output "mysql_addresses" {
   value = "${module.mysql.addresses}"
 }
+
+output "vault_addresses" {
+  value = "${module.vault.addresses}"
+}
