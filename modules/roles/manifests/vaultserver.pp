@@ -1,5 +1,5 @@
-# Configures a consulserver
-class roles::consulserver inherits roles::base {
+# Configures a vaultserver
+class roles::vaultserver inherits roles::base {
 
   include ::profiles::vault
 
