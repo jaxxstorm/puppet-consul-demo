@@ -1,1 +1,0 @@
-profiles::vault::consul_address: "consul.service.consul:8500"
